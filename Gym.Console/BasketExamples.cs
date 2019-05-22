@@ -14,6 +14,7 @@ namespace Gym.Console
             var cartItem2 = new ShoppingCartItem(new Product(ProductCategory.Jumper, "Jumper"), 1, 54.65M);
             var voucherFactory = new VoucherFactory();
             var giftVoucher5PoundsOff = voucherFactory.Create(VoucherFactoryType.GiftVoucher5PoundsOff, "XXX-XXX", "£5.00 Gift Voucher");
+
             cartManager.AddItem(cartItem1);
             cartManager.AddItem(cartItem2);
             cartManager.ApplyVoucher(giftVoucher5PoundsOff);
@@ -29,7 +30,6 @@ namespace Gym.Console
             var voucherFactory = new VoucherFactory();
             var offerVoucher5PoundsOffBasketsOver50PoundsHeadGearOnly = voucherFactory.Create(VoucherFactoryType.OfferVoucher5PoundsOffBasketsOver50PoundsHeadGearOnly, "YYY-YYY", "£5.00 off Head Gear in baskets over £50.00 Offer Voucher");
             
-            // Act
             cartManager.AddItem(cartItem1);
             cartManager.AddItem(cartItem2);
             cartManager.ApplyVoucher(offerVoucher5PoundsOffBasketsOver50PoundsHeadGearOnly);
@@ -46,7 +46,6 @@ namespace Gym.Console
             var voucherFactory = new VoucherFactory();
             var offerVoucher5PoundsOffBasketsOver50PoundsHeadGearOnly = voucherFactory.Create(VoucherFactoryType.OfferVoucher5PoundsOffBasketsOver50PoundsHeadGearOnly, "YYY-YYY", "£5.00 off Head Gear in baskets over £50.00 Offer Voucher");
             
-            // Act
             cartManager.AddItem(cartItem1);
             cartManager.AddItem(cartItem2);
             cartManager.AddItem(cartItem3);
@@ -64,7 +63,6 @@ namespace Gym.Console
             var giftVoucher5PoundsOff = voucherFactory.Create(VoucherFactoryType.GiftVoucher5PoundsOff, "XXX-XXX", "£5.00 Gift Voucher");
             var offerVoucher5PoundsOffBasketsOver50Pounds = voucherFactory.Create(VoucherFactoryType.OfferVoucher5PoundsOffBasketsOver50Pounds, "YYY-YYY", "£5.00 off baskets over £50.00 Offer Voucher");
 
-            // Act
             cartManager.AddItem(cartItem1);
             cartManager.AddItem(cartItem2);
             cartManager.ApplyVoucher(giftVoucher5PoundsOff);
@@ -81,7 +79,6 @@ namespace Gym.Console
             var voucherFactory = new VoucherFactory();
             var offerVoucher5PoundsOffBasketsOver50Pounds = voucherFactory.Create(VoucherFactoryType.OfferVoucher5PoundsOffBasketsOver50Pounds, "YYY-YYY", "£5 Off Baskets Over £50.00 Voucher");
 
-            // Act
             cartManager.AddItem(cartItem1);
             cartManager.AddItem(cartItem2);
             cartManager.ApplyVoucher(offerVoucher5PoundsOffBasketsOver50Pounds);
