@@ -9,14 +9,15 @@ namespace Gym.Ecommerce.Specifications
     public class OfferVoucherSpecification : VoucherSpecification
     {
         private readonly decimal _minimumSpend;
-        private readonly ProductCategory? _productCategory;
 
         public OfferVoucherSpecification(decimal minimumSpend, ProductCategory? productCategory = null)
         {
             _minimumSpend = minimumSpend;
-            _productCategory = productCategory;
+            ProductCategory = productCategory;
         }
-        
+
+        public ProductCategory? ProductCategory { get; }
+
         protected override Func<ShoppingCart, bool> Predicate()
         {
             return shoppingCart =>
@@ -35,7 +36,7 @@ namespace Gym.Ecommerce.Specifications
                 }
                 
                 // Can only apply vouchers to certain product categories if the voucher has those defined.
-                if (!(_productCategory != null && shoppingCart.CartItems.Any(x => x.Product.ProductCategory == _productCategory) || _productCategory == null))
+                if (!(ProductCategory != null && shoppingCart.CartItems.Any(x => x.Product.ProductCategory == ProductCategory) || ProductCategory == null))
                 {
                     throw new VoucherDoesNotContainProductCategoryException();
                 }

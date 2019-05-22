@@ -88,8 +88,8 @@ namespace Gym.Tests
             cartManager.Cart.CartItems.Should().Contain(cartItem2);
             cartManager.Cart.CartItems.Should().Contain(cartItem3);
             cartManager.Cart.CartNonDiscountedPrice.Should().Be(54.50M);
-            cartManager.Cart.CartDiscountValue.Should().Be(5.00M);
-            cartManager.Cart.CartDiscountedPrice.Should().Be(49.50M);
+            cartManager.Cart.CartDiscountValue.Should().Be(3.50M);
+            cartManager.Cart.CartDiscountedPrice.Should().Be(51.00M);
             cartManager.Cart.ContainsOfferVoucher().Should().BeTrue();
             cartManager.Cart.ContainsGiftVoucher().Should().BeFalse();
             cartManager.Cart.ContainsGiftVoucherProducts().Should().BeFalse();

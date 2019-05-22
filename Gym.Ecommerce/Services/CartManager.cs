@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Gym.Ecommerce.Models;
 using Gym.Ecommerce.Models.Exceptions;
 using Gym.Ecommerce.Models.Vouchers;
+using Gym.Ecommerce.Models.Vouchers.Apply;
 
 namespace Gym.Ecommerce.Services
 {
@@ -35,7 +36,10 @@ namespace Gym.Ecommerce.Services
                     return;
                 }
 
-                Cart.Vouchers.Add(voucher);
+                var appliedVoucher = new VoucherAppliedDecorator(voucher);
+                appliedVoucher.Apply(Cart);
+
+                Cart.Vouchers.Add(appliedVoucher);
             }
             catch (OfferVoucherBasketTotalTooLowException exception)
             {

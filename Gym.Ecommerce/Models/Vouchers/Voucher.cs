@@ -1,22 +1,31 @@
-﻿using Gym.Ecommerce.Specifications;
+﻿using Gym.Ecommerce.Models.Vouchers.Apply;
+using Gym.Ecommerce.Specifications;
 
 namespace Gym.Ecommerce.Models.Vouchers
 {
     public class Voucher : IVoucher
     {
-        private readonly VoucherSpecification _voucherSpecification;
-
-        public Voucher(string code, string name, decimal value, VoucherSpecification voucherSpecification)
+        public Voucher(VoucherType voucherType,
+                       string code, 
+                       string name, 
+                       decimal value, 
+                       VoucherSpecification voucherSpecification,
+                       VoucherApplyStrategy applyStrategy)
         {
+            VoucherType = voucherType;
             Code = code;
             Name = name;
             Value = value;
-            _voucherSpecification = voucherSpecification;
+            VoucherSpecification = voucherSpecification;
+            ApplyStrategy = applyStrategy;
         }
 
+        public VoucherType VoucherType { get; }
         public string Code { get; }
         public string Name { get; }
         public decimal Value { get; private set; }
-        public bool CanBeAppliedToCart(ShoppingCart shoppingCart) => _voucherSpecification.VoucherCanBeApplied(shoppingCart);
+        public VoucherSpecification VoucherSpecification { get; }
+        public VoucherApplyStrategy ApplyStrategy { get; }
+        public bool CanBeAppliedToCart(ShoppingCart shoppingCart) => VoucherSpecification.VoucherCanBeApplied(shoppingCart);
     }
 }

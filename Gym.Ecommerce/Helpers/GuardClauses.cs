@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Gym.Ecommerce.Models;
 using Gym.Ecommerce.Models.Exceptions;
 using Gym.Ecommerce.Models.Vouchers;
 
